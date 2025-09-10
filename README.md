@@ -1,1 +1,70 @@
-# Data-Structures-Algorithms
+
+# JavaScript-Variables: 
+`var`, `let`, `const`
+
+## Key Concepts
+
+- **Variable:** A named container for storing data.  
+  Example: `let score = 10;`
+
+- **Operator:** A symbol that performs an operation on values.  
+  Examples: `+`, `-`, `=`, `*`, `/`
+
+- **Operation of Operator:** The action performed by the operator.  
+  Example: `5 + 2` performs addition, resulting in `7`.
+
+---
+
+## Variable Declaration Examples
+
+### 1. Correct Usage
+
+```javascript
+var a = 12;
+console.log(a); // Output: 12
+```
+
+---
+
+### 2. Hoisting Behavior
+
+```javascript
+// This works but is confusing (with var)
+console.log(a); // Output: undefined
+var a;
+
+// This causes a clear error (with let) - PREFERRED
+console.log(b); // Error: Cannot access 'b' before initialization
+let b = 12;
+```
+
+---
+
+### 3. Undefined vs. Not Defined
+
+```javascript
+console.log(x); // Error: x is not defined (variable never exists)
+
+console.log(y); // Output: undefined (variable exists but has no value)
+var y;
+```
+
+---
+
+## Why use `let`/`const` over `var`?
+
+- **Block Scope:**  
+  `let` and `const` are confined to `{}` blocks, making code safer and more predictable.
+
+- **No Hoisting Issues:**  
+  They prevent access before declaration, throwing a clear error instead of returning `undefined`.
+
+- **No Re-declaration:**  
+  You cannot accidentally declare the same variable twice, which helps prevent bugs.
+
+**Best Practice:**  
+Prefer `const` (for variables that never change), otherwise use `let`.  
+Avoid `var` in modern JavaScript.
+
+---
+````
