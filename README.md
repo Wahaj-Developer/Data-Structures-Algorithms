@@ -1,5 +1,7 @@
 # JavaScript Variables: `var`, `let`, `const` & Type Behavior
 
+---
+
 ## Variable Declaration and Addition
 
 ```javascript
@@ -9,7 +11,7 @@ console.log("sum of 10 + 10 is " + (a + b));
 // Output: sum of 10 + 10 is 20
 ```
 **Explanation:**  
-In this example, JavaScript evaluates the expression inside parentheses first (`a + b`), then concatenates the result with the string. This is similar to how humans solve brackets first.
+JavaScript solves the bracket first (`a + b`), then concatenates the result with the string, just like humans do in math.
 
 ---
 
@@ -20,7 +22,7 @@ console.log(a + b + "sum of 10 +10 ");
 // Output: 20sum of 10 +10
 ```
 **Explanation:**  
-Here, JavaScript adds the numbers first (`a + b = 20`), then concatenates the result with the string.
+JavaScript first solves `a + b`, then concatenates the string.
 
 ---
 
@@ -33,19 +35,53 @@ console.log("1" - 1); // Output: 0
 console.log("1" / 1); // Output: 1
 ```
 
-- With the `+` operator:  
-  If you give a string and a number, JavaScript performs **concatenation** because `+` can be used for both addition and string joining.
-- With other operators (`*`, `-`, `/`):  
-  JavaScript assumes the string should be treated as a number (type coercion), then performs the mathematical operation.
+- If you use string + number with `+`, JavaScript does **concatenation**.
+- For other operators (`*`, `-`, `/`), JavaScript **coerces** the string to a number and performs the operation.
+- `+` has two purposes (addition & concatenation), other operators only do math.
+
+**Coercion:**  
+JavaScript automatically converts types to perform operations.
 
 ---
 
-## Why does JavaScript behave this way?
+## Type Checking with `typeof`
 
-**Type Coercion:**  
-This automatic conversion between types (string to number, or number to string) is called **coercion**.  
-- With `+`, JavaScript can either add or concatenate, so if either operand is a string, it converts both to strings and joins them.
-- With `*`, `-`, `/`, JavaScript expects numbers. If you use a string containing a number, it converts it to a number and performs the calculation.
+```javascript
+let a = 10;
+let b = "10";
+console.log(a + b); // Output: "1010"
+console.log(typeof(a + b)); // Output: "string"
+```
+- `typeof` is a special keyword/operator used to check the data type.
+- When you add a number and a string, the result is a string (**concatenation**).
+
+---
+
+## Accept and Print Answer
+
+```javascript
+let age = prompt("Enter your age");
+```
+**What is prompt?**  
+- `prompt` is a function used to take input from the user.
+- The value from `prompt` is always received as a **string**.
+
+---
+
+### How to Get Number Input
+
+```javascript
+let age = Number(prompt("Enter your age"));
+```
+- If you want a number, wrap `prompt` with `Number()`.
+- If the user enters a string that is not a number (e.g., `"123abc"`), the result is `NaN`.
+- **NaN** stands for "Not a Number" and is still of type `number`.
+
+---
+
+**Type Casting:**  
+- Changing a value from string to number (or vice versa) is called **type casting**.
+- JavaScript uses type casting automatically in many situations.
 
 ---
 
@@ -57,14 +93,18 @@ This automatic conversion between types (string to number, or number to string) 
 | `"1" * 1`          | `1`        | String coerced to number, multiplication     |
 | `"1" - 1`          | `0`        | String coerced to number, subtraction        |
 | `"1" / 1`          | `1`        | String coerced to number, division           |
+| `Number("123abc")` | `NaN`      | Not a number, result is NaN                  |
+| `typeof NaN`       | `"number"` | NaN is a number type                         |
 
 ---
 
 ## Documentation Notes
 
-- JavaScript evaluates expressions from left to right, similar to human logic with math operations.
-- The `+` operator can do both addition and string concatenation, depending on the types of its operands.
-- Other mathematical operators (`*`, `-`, `/`) only perform numeric operations. If a string is given, JavaScript converts it to a number (type coercion).
-- This conversion process is called **coercion**.
+- JavaScript evaluates from left to right, similar to human logic with math operations.
+- The `+` operator does addition and string concatenation, depending on operand types.
+- Other mathematical operators (`*`, `-`, `/`) only perform numeric operations, using **coercion** to convert strings to numbers.
+- **Type casting** is converting values between types, such as string to number.
+- `prompt` always returns a string. Use `Number()` for numeric input from the user.
+- `NaN` is a special value representing "Not a Number", but its type is still `number`.
 
 ---
