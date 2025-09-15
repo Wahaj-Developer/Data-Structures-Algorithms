@@ -1,110 +1,249 @@
-# JavaScript Variables: `var`, `let`, `const` & Type Behavior
+# JavaScript Variables: `var`, `let`, `const`
+
+## Key Concepts
+
+- **Variable:**  
+  A named container for storing data.  
+  Example: `let score = 10;`
+
+- **Operator:**  
+  A symbol that performs an operation on values.  
+  Examples: `+`, `-`, `=`, `*`, `/`
+
+- **Operation of Operator:**  
+  The action performed by the operator.  
+  Example: `5 + 2` performs addition, resulting in `7`.
 
 ---
 
-## Variable Declaration and Addition
+## Variable Declaration Keywords
+
+| Keyword   | Scope         | Hoisting         | Re-declaration | Mutability | Use Case                |
+|-----------|--------------|------------------|----------------|------------|-------------------------|
+| `var`     | Function     | Yes (undefined)  | Allowed        | Yes        | Legacy, avoid in modern |
+| `let`     | Block        | Yes (TDZ error)  | Not allowed    | Yes        | General use             |
+| `const`   | Block        | Yes (TDZ error)  | Not allowed    | No         | Constants, references   |
+
+**TDZ:** Temporal Dead Zone (access before declaration throws error)
+
+---
+
+## Examples
+
+### 1. Correct Usage
+
+```javascript
+var a = 12;
+let b = 13;
+const c = 14;
+console.log(a, b, c); // Output: 12 13 14
+```
+
+### 2. Scope Example
+
+```javascript
+{
+  var x = 1;
+  let y = 2;
+  const z = 3;
+}
+console.log(x); // 1 (function/global scope)
+console.log(y); // Error: y is not defined
+console.log(z); // Error: z is not defined
+```
+
+### 3. Hoisting Behavior
+
+```javascript
+// 'var' is hoisted and initialized as undefined
+console.log(a); // Output: undefined
+var a = 10;
+
+// 'let' and 'const' are hoisted but not initialized
+console.log(b); // Error: Cannot access 'b' before initialization
+let b = 20;
+
+console.log(c); // Error: Cannot access 'c' before initialization
+const c = 30;
+```
+
+### 4. Re-declaration
+
+```javascript
+var foo = 1;
+var foo = 2; // Allowed
+
+let bar = 1;
+let bar = 2; // Error: Identifier 'bar' has already been declared
+
+const baz = 1;
+const baz = 2; // Error: Identifier 'baz' has already been declared
+```
+
+### 5. Mutability
+
+```javascript
+let score = 100;
+score = 200; // Allowed
+
+const PI = 3.14159;
+PI = 3.15; // Error: Assignment to constant variable
+
+const arr = [1, 2, 3];
+arr.push(4); // Allowed (object contents can change)
+```
+
+### 6. Undefined vs. Not Defined
+
+```javascript
+console.log(x); // Error: x is not defined (never declared)
+
+var y;
+console.log(y); // Output: undefined (declared, no value)
+```
+
+---
+
+## Data Types and Type Checking
+
+### Addition of Same Data Types
 
 ```javascript
 let a = 10;
 let b = 10;
-console.log("sum of 10 + 10 is " + (a + b)); 
-// Output: sum of 10 + 10 is 20
+console.log(a + b); // Output: 20
 ```
-**Explanation:**  
-JavaScript solves the bracket first (`a + b`), then concatenates the result with the string, just like humans do in math.
+- Both variables are numbers, so the result is a number.
 
----
+### Addition of Number and String (Concatenation)
 
 ```javascript
-let a = 10;
-let b = 10;
-console.log(a + b + "sum of 10 +10 "); 
-// Output: 20sum of 10 +10
-```
-**Explanation:**  
-JavaScript first solves `a + b`, then concatenates the string.
-
----
-
-## Operator Behavior: String and Number
-
-```javascript
-console.log("1" + 1); // Output: "11"
-console.log("1" * 1); // Output: 1
-console.log("1" - 1); // Output: 0
-console.log("1" / 1); // Output: 1
-```
-
-- If you use string + number with `+`, JavaScript does **concatenation**.
-- For other operators (`*`, `-`, `/`), JavaScript **coerces** the string to a number and performs the operation.
-- `+` has two purposes (addition & concatenation), other operators only do math.
-
-**Coercion:**  
-JavaScript automatically converts types to perform operations.
-
----
-
-## Type Checking with `typeof`
-
-```javascript
-let a = 10;
-let b = "10";
+let a = 10; // Number
+let b = "10"; // String
 console.log(a + b); // Output: "1010"
 console.log(typeof(a + b)); // Output: "string"
 ```
-- `typeof` is a special keyword/operator used to check the data type.
-- When you add a number and a string, the result is a string (**concatenation**).
+- The `+` operator with a number and a string results in **string concatenation**.
+- `typeof` is a special JavaScript operator (not a property or method) that helps you identify the type of data.
 
----
-
-## Accept and Print Answer
+### String Concatenation in Expressions
 
 ```javascript
-let age = prompt("Enter your age");
+let a = 10;
+let b = 10;
+console.log("sum of 10 and 10 is" + a + b);
+// Output: "sum of 10 and 10 is1010"
 ```
-**What is prompt?**  
-- `prompt` is a function used to take input from the user.
-- The value from `prompt` is always received as a **string**.
+- JavaScript evaluates from left to right.  
+- `"sum of 10 and 10 is" + a` results in a string, then adding `b` to a string concatenates `b` as a string as well.
+
+### How JavaScript Handles Mixed Types
+
+- When you add a number and a string with `+`, JavaScript converts the number to a string and concatenates.
+- This process is called **concatenation**.
 
 ---
 
-### How to Get Number Input
+## Why use `let`/`const` over `var`?
+
+- **Block Scope:**  
+  `let` and `const` are confined to `{}` blocks, making code safer and more predictable.
+- **No Hoisting Issues:**  
+  They prevent access before declaration, throwing a clear error instead of returning `undefined`.
+- **No Re-declaration:**  
+  You cannot accidentally declare the same variable twice, which helps prevent bugs.
+- **Mutability:**  
+  Use `const` for values that should not change, `let` for those that will.
+
+**Best Practice:**  
+Prefer `const` for variables that never change, otherwise use `let`.  
+Avoid `var` in modern JavaScript.
+
+---
+
+## Quick Reference
+
+- Use `const` for constants and object references.
+- Use `let` for variables that will change.
+- Avoid `var` unless maintaining legacy code.
+
+---
+
+## Swapping Two Numbers
+
+You can swap two numbers in different ways. This is a common interview topic and basic JavaScript practice.
+
+### First Method: Using a Third Variable
 
 ```javascript
-let age = Number(prompt("Enter your age"));
+let a = 10;
+let b = 20;
+let c = a; // c = 10
+a = b;     // a = 20
+b = c;     // b = 10
 ```
-- If you want a number, wrap `prompt` with `Number()`.
-- If the user enters a string that is not a number (e.g., `"123abc"`), the result is `NaN`.
-- **NaN** stands for "Not a Number" and is still of type `number`.
+- Here, a third variable `c` is used to temporarily store the value of `a`.
+
+### Second Method: Using Arithmetic Operators
+
+```javascript
+let a = 10;
+let b = 20;
+a = a + b; // a = 30
+b = a - b; // b = 10
+a = a - b; // a = 20
+```
+- This method uses addition and subtraction, no third variable needed.
+
+### Third Method: Using Array Destructuring
+
+```javascript
+let a = 10;
+let b = 20;
+[a, b] = [b, a]
+```
+- This is the shortest and most modern way to swap values in JavaScript.
 
 ---
 
-**Type Casting:**  
-- Changing a value from string to number (or vice versa) is called **type casting**.
-- JavaScript uses type casting automatically in many situations.
+## Operators
+
+### Division `/` Operator
+
+```javascript
+let a = 12;
+let b = 22;
+console.log(a / b); // Output will be in decimal points
+```
+- `/` is the divide operator.
+
+If you want to remove the decimal points and get only the integer (consient), use `Math.floor()`:
+
+```javascript
+console.log(Math.floor(a / b)); // Output: 0
+```
+- `Math.floor` is a method that removes the decimal and gives you the integer part.
+
+### Modulus `%` Operator
+
+```javascript
+let a = 7;
+let b = 2;
+console.log(a % b); // Output: 1
+```
+- `%` gives the **remainder** after division.
+
+#### Division Example Illustration
+
+```
+           _____3____   -----------> Consient
+      __2_|   7
+                6
+            ___________
+                 1          -------------> Reminder
+```
+- In this example, `7 / 2` gives a consient (quotient) of `3` and a remainder of `1`.
 
 ---
 
-## Summary Table
-
-| Expression         | Result      | Explanation                                  |
-|--------------------|------------|----------------------------------------------|
-| `"1" + 1`          | `"11"`     | String concatenation                         |
-| `"1" * 1`          | `1`        | String coerced to number, multiplication     |
-| `"1" - 1`          | `0`        | String coerced to number, subtraction        |
-| `"1" / 1`          | `1`        | String coerced to number, division           |
-| `Number("123abc")` | `NaN`      | Not a number, result is NaN                  |
-| `typeof NaN`       | `"number"` | NaN is a number type                         |
-
----
-
-## Documentation Notes
-
-- JavaScript evaluates from left to right, similar to human logic with math operations.
-- The `+` operator does addition and string concatenation, depending on operand types.
-- Other mathematical operators (`*`, `-`, `/`) only perform numeric operations, using **coercion** to convert strings to numbers.
-- **Type casting** is converting values between types, such as string to number.
-- `prompt` always returns a string. Use `Number()` for numeric input from the user.
-- `NaN` is a special value representing "Not a Number", but its type is still `number`.
-
----
+Read all examples and explanations carefully. Each code and explanation is given so that if you read this file, you can use it as documentation for understanding variable declaration, operators, swapping numbers, and basic type checking in JavaScript. All data comes directly from the provided examples.
