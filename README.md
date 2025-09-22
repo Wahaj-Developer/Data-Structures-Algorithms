@@ -246,4 +246,3 @@ console.log(a % b); // Output: 1
 
 ---
 
-Read all examples and explanations carefully. Each code and explanation is given so that if you read this file, you can use it as documentation for understanding variable declaration, operators, swapping numbers, and basic type checking in JavaScript. All data comes directly from the provided examples.
