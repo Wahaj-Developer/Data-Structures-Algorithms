@@ -246,3 +246,36 @@ console.log(a % b); // Output: 1
 
 ---
 
+In programming use what you  
+Want constent: / devide  
+Want reiminder: % mode  
+
+```javascript
+let a = 7;
+let b = 2;
+console.log(a % b)
+```
+
+```
+                           ___0.__________        ------------->somthing
+                    _7__|     2
+```
+
+If you want output in integer not in decimal use Math.floor property
+
+```javascript
+console.log(Math.floor(b/a))
+```
+Output: 0
+
+Want last value  
+```javascript
+let a = 4563;
+console.log(a % 10)
+```
+output: 3
+
+Want last value value  
+devide perfom with 100  
+if you want last 3 digit  
+just increase 0 like apply 1000  
