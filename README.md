@@ -296,4 +296,8 @@ console.log(a % 1000); // 563
 > - Choose `const` by default.
 > - Use `/` for division (with `Math.floor()` for integers).
 > - Use `%` for remainders and extracting digits.
+> - If you want quotent use devison `/`
+> - If you wand reminder use mode `%`
+> - Both have diffrent puposes and use in diffrent cases.
 > - Variables are containers, operators are tools — use them wisely!
+> - 
