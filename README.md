@@ -309,7 +309,7 @@ Relational operators are used to compare two values:
 
 ```javascript
 console.log(10 > 15); // Output: false
-// |----------->Greater than
+
 // In this showing that 15 is greater than 10 and its false
 ```
 
@@ -317,7 +317,7 @@ console.log(10 > 15); // Output: false
 
 ```javascript
 console.log(10 < 5); // Output: false
-// |--------->Less than
+
 // In this showing 10 is less than 5 and its false
 ```
 
@@ -325,35 +325,17 @@ console.log(10 < 5); // Output: false
 
 ```javascript
 console.log(10 >= 10); // Output: true
-// |---------->Greater than equal to
+// Greater than equal to `>=`
 // In this there is two condition when one condition is true then the output come true
 ```
 
 ```javascript
 console.log(10 >= 7); // Output: true
-// first condito<-|   |------>second conditon
-//          True                                 False
+// first conditon `>`   second conditon`=`
+//   True                    False
 // Output:True
 ```
 
-#### `!=` Not equal to
-
-```javascript
-console.log(10 != 15); // Output: true
-```
-
-#### `==` Equal to (value only)
-
-```javascript
-console.log(10 == "10"); // Output: true
-```
-
-#### `===` Strict equal to (value and type)
-
-```javascript
-console.log(10 === "10"); // Output: false
-console.log(10 === 10);   // Output: true
-```
 
 ---
 
