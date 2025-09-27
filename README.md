@@ -1,4 +1,3 @@
-
 # JavaScript Variables & Operators — The Ultimate Beginner-Friendly Guide
 
 ---
@@ -291,6 +290,73 @@ console.log(a % 1000); // 563
 
 ---
 
+## 👨‍💻 Relational Operators
+
+Relational operators are used to compare two values:
+
+- `<`  (Less than)
+- `>`  (Greater than)
+- `<=` (Less than or equal to)
+- `>=` (Greater than or equal to)
+- `!=` (Not equal to)
+- `=`  (Assignment, not comparison)
+- `==` (Equal to, compares values but not type)
+- `===` (Strict equal to, compares both value and type)
+
+### Examples
+
+#### `>` Greater than
+
+```javascript
+console.log(10 > 15); // Output: false
+// |----------->Greater than
+// In this showing that 15 is greater than 10 and its false
+```
+
+#### `<` Less than
+
+```javascript
+console.log(10 < 5); // Output: false
+// |--------->Less than
+// In this showing 10 is less than 5 and its false
+```
+
+#### `>=` Greater than or equal to
+
+```javascript
+console.log(10 >= 10); // Output: true
+// |---------->Greater than equal to
+// In this there is two condition when one condition is true then the output come true
+```
+
+```javascript
+console.log(10 >= 7); // Output: true
+// first condito<-|   |------>second conditon
+//          True                                 False
+// Output:True
+```
+
+#### `!=` Not equal to
+
+```javascript
+console.log(10 != 15); // Output: true
+```
+
+#### `==` Equal to (value only)
+
+```javascript
+console.log(10 == "10"); // Output: true
+```
+
+#### `===` Strict equal to (value and type)
+
+```javascript
+console.log(10 === "10"); // Output: false
+console.log(10 === 10);   // Output: true
+```
+
+---
+
 > **Summary:**  
 > - Use `let` and `const` for all modern JavaScript.
 > - Choose `const` by default.
@@ -300,4 +366,4 @@ console.log(a % 1000); // 563
 > - If you wand reminder use mode `%`
 > - Both have diffrent puposes and use in diffrent cases.
 > - Variables are containers, operators are tools — use them wisely!
-> - 
+> - Relational operators: `<`, `>`, `<=`, `>=`, `!=`, `=`, `==`, `===` allow you to compare values and types in JavaScript.
