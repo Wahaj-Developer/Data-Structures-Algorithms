@@ -292,7 +292,7 @@ console.log(a % 1000); // 563
 
 ## 👨‍💻 Relational Operators
 
-Relational operators are used to compare two values:
+Relational operators are used to compare two values and perfom different operation:
 
 - `<`  (Less than)
 - `>`  (Greater than)
@@ -345,7 +345,7 @@ console.log(10 >= 7); // Output: true
 > - Use `/` for division (with `Math.floor()` for integers).
 > - Use `%` for remainders and extracting digits.
 > - If you want quotent use devison `/`
-> - If you wand reminder use mode `%`
+> - If you Operators reminder use mode `%`
 > - Both have diffrent puposes and use in diffrent cases.
 > - Variables are containers, operators are tools — use them wisely!
 > - Relational operators: `<`, `>`, `<=`, `>=`, `!=`, `=`, `==`, `===` allow you to compare values and types in JavaScript.
