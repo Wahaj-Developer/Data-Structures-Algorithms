@@ -22,6 +22,8 @@ Operators let you perform actions on data:
 - `/` (Division)
 - `%` (Modulus — remainder after division)
 - `=` (Assignment)
+- `==` (Abstract equality operator or Loose equality operator)
+- - `===` (Strict equality operator)
 
 **Example:**
 ```javascript
@@ -53,6 +55,13 @@ let b = 13;
 const c = 14;
 console.log(a, b, c); // 12 13 14
 ```
+This JavaScript code demonstrates three different ways to declare variables:
+
+- var - Function-scoped variable (older method)
+
+- let - Block-scoped variable (modern, recommended)
+
+- const - Block-scoped constant (cannot be reassigned)
 
 ### 2. Scope Demonstration
 
