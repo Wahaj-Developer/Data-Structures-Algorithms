@@ -1,4 +1,4 @@
-# JavaScript Variables & Operators — The Ultimate Beginner-Friendly Guide
+# All About JavaScript    
 
 ---
 
