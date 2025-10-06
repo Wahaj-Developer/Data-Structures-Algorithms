@@ -344,13 +344,15 @@ console.log(10 != 10); // Output: false
 ```javascript
 let a = 10; // '=' assigns the value 10 to a
 ```
-
+ 
+- 
 #### `==` Loose Equality
 
 ```javascript
 console.log(10 == '10'); // Output: true
 // Checks only value, not type
 ```
+- `==` 10 is the.
 
 #### `===` Strict Equality
 
@@ -358,7 +360,7 @@ console.log(10 == '10'); // Output: true
 console.log(10 === '10'); // Output: false
 // Checks both value and type
 ```
-
+- `===` 10 is value and ' ' is type.
 ---
 
 ## 📝 Summary
