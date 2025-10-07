@@ -1,5 +1,7 @@
 # All About JavaScript    
-
+---
+# ⚠️ DISCLAIMER: Intermediate Level Content Ahead
+# If you're new to JavaScript, this might feel like drinking from a firehose! 🔥
 ---
 
 ## 🚀 Variables: Your Data Containers
