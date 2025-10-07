@@ -25,7 +25,7 @@ Operators let you perform actions on data:
 - `%` (Modulus — remainder after division)
 - `=` (Assignment)
 - `==` (Abstract equality operator or Loose equality operator)
-- - `===` (Strict equality operator)
+- `===` (Strict equality operator)
 
 **Example:**
 ```javascript
