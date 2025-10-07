@@ -75,6 +75,32 @@ console.log(x); // 1 (var escapes the block!)
 console.log(y); // Error: y is not defined
 console.log(z); // Error: z is not defined
 ```
+- We have a block:
+{
+var x = 1;
+let y = 2;
+const z = 3;
+}
+
+After the block, we try to log x, y, and z.
+
+- For x:
+
+Since var is not block-scoped, the variable x is accessible outside the block.
+
+So, console.log(x) will output 1.
+
+- For y:
+
+y is declared with let inside the block, so it is block-scoped and not accessible outside.
+
+Trying to access y outside the block will throw a ReferenceError: y is not defined.
+
+- For z:
+
+z is declared with const inside the block, so it is also block-scoped and not accessible outside.
+
+Trying to access z outside the block will throw a ReferenceError: z is not defined.
 
 ### 3. Hoisting Behavior
 
@@ -88,6 +114,41 @@ let b = 20;
 console.log(c); // Error!
 const c = 30;
 ```
+- For var a = 10;:
+
+The declaration (var a) is hoisted to the top of the scope (global scope here) and initialized with undefined.
+
+The assignment (a = 10) remains in place.
+
+So, when we try to console.log(a) before the assignment, we get undefined.
+
+- For let b = 20; and const c = 30;:
+
+The declarations (let b and const c) are hoisted but NOT initialized (this is often called the "temporal dead zone").
+
+Accessing them before the declaration line will throw a ReferenceError.
+
+Let's break down the code step by step as the JavaScript engine would:
+
+Phase 1: Hoisting and Memory Allocation
+
+var a is hoisted and set to undefined.
+
+let b and const c are hoisted but not initialized (so they are in the temporal dead zone until their declaration lines).
+
+- Phase 2: Execution
+
+console.log(a) -> at this point, a is undefined.
+
+Then we assign a = 10.
+
+console.log(b) -> at this point, b is in the temporal dead zone, so accessing it throws a ReferenceError.
+
+Similarly, console.log(c) would also throw a ReferenceError.
+
+However, note that the error at console.log(b) will stop the execution, so console.log(c) won't be reached.
+
+Let's write the code in a way that we can see the behavior without stopping at the first error.
 
 ### 4. Re-declaration Rules
 
