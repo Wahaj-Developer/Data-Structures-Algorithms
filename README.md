@@ -164,6 +164,13 @@ let bar = 2; // Error!
 const baz = 1;
 const baz = 2; // Error!
 ```
+- var allows redeclaration - You can declare the same variable multiple times without errors, which can cause bugs
+
+- let prevents redeclaration - Throws an error if you try to declare the same variable again in the same scope
+
+- const prevents both redeclaration and reassignment - Most strict, cannot redeclare or change the value after initialization
+
+Conclusion: Modern JavaScript favors let and const over var because they provide better error prevention and make code more predictable and maintainable.
 
 ### 5. Mutability
 
