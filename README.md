@@ -184,6 +184,13 @@ PI = 3.15; // Error!
 const arr = [1, 2, 3];
 arr.push(4); // Allowed! (Array contents can change)
 ```
+- let allows reassignment - Variables declared with let can be assigned new values after declaration
+
+- const prevents reassignment of the variable itself - Cannot assign a completely new value to a const variable
+
+- const allows mutation of object contents - For arrays and objects, the contents can be modified even though the variable binding is constant
+
+Conclusion: const makes the variable binding immutable, not the data it points to - use const for values that shouldn't be reassigned, and let when you need to change the variable's value entirely.
 
 ### 6. Undefined vs. Not Defined
 
