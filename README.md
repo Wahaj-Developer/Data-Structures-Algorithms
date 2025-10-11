@@ -200,6 +200,14 @@ console.log(x); // Error: x is not defined
 var y;
 console.log(y); // undefined
 ```
+- "Error" means complete failure - The variable was never declared anywhere in the code, so JavaScript cannot find it and throws a ReferenceError
+
+- "undefined" means variable exists but has no value - The variable was properly declared but hasn't been assigned any value yet
+
+- Different causes and behaviors - Errors stop execution, while undefined allows code to continue running
+
+Conclusion: "Error" means the variable doesn't exist at all (never declared), while "undefined" means the variable exists but has no value assigned yet - they represent completely different states in JavaScript execution.
+
 
 ---
 
