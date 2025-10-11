@@ -184,14 +184,6 @@ PI = 3.15; // Error!
 const arr = [1, 2, 3];
 arr.push(4); // Allowed! (Array contents can change)
 ```
-- Using undeclared variables causes ReferenceError - Accessing a variable that was never declared (like x) throws an immediate error
-
-- Declared but uninitialized var variables return undefined - Variables declared with var exist but have no value until assigned
-
-- var variables are hoisted - They are initialized with undefined during the creation phase, which is why y exists but has no value
-
-Conclusion: Always declare variables before using them, and understand that var declarations are hoisted with undefined values, while accessing completely undeclared variables will cause runtime errors.
-
 - let allows reassignment - Variables declared with let can be assigned new values after declaration
 
 - const prevents reassignment of the variable itself - Cannot assign a completely new value to a const variable
