@@ -220,6 +220,13 @@ let a = 10;
 let b = 10;
 console.log(a + b); // 20
 ```
+- Variable Declaration - let a = 10 and let b = 10 declare two separate variables and assign them numeric values
+
+- Mathematical Operation - a + b performs addition using the values stored in both variables (10 + 10)
+
+- Output Result - console.log() displays the computed result of 20 in the console
+
+Conclusion: This demonstrates basic variable assignment and arithmetic operations in JavaScript, where declared variables store values that can be used in mathematical expressions to produce expected results.
 
 ### Adding Number + String (Concatenation)
 
@@ -229,6 +236,14 @@ let b = "10";
 console.log(a + b); // "1010"
 console.log(typeof(a + b)); // "string"
 ```
+- Different Data Types - a is a number (10) while b is a string ("10") - they have different types despite similar appearance
+
+- String Concatenation with + - When using + operator with mixed types, JavaScript converts the number to string and concatenates them
+
+- Type Coercion Result - The operation 10 + "10" becomes "10" + "10" resulting in string "1010" instead of mathematical sum
+
+Conclusion: The + operator behaves differently based on data types - it performs addition with numbers but concatenation when strings are involved, demonstrating JavaScript's type coercion where values are automatically converted to compatible types during operations.
+
 - When you use `+` with a number and a string, JavaScript converts the number to a string and joins them together.
 
 ### Concatenation in Expressions
