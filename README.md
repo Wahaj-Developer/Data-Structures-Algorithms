@@ -308,6 +308,13 @@ a = a + b; // 30
 b = a - b; // 10
 a = a - b; // 20
 ```
+- Combine values - a = a + b stores the sum of both variables (30) in a, creating a temporary total
+
+- Extract original 'a' - b = a - b subtracts current b (20) from the total (30) to get original a value (10) and assigns it to b
+
+- Extract original 'b' - a = a - b subtracts the new b (10) from the total (30) to get original b value (20) and assigns it to a
+
+Conclusion: This is a mathematical swapping technique that exchanges variable values without using a temporary variable by leveraging arithmetic operations to preserve and extract the original values.
 
 ### 3. With Array Destructuring (Modern & Simple)
 
@@ -316,9 +323,15 @@ let a = 10;
 let b = 20;
 [a, b] = [b, a];
 ```
+- Array Destructuring - [b, a] creates a temporary array with the swapped values [20, 10]
+
+- Simultaneous Assignment - [a, b] = assigns the array values to variables in one operation
+
+- Parallel Execution - Both assignments happen at the same time, avoiding the need for temporary storage
+
+Conclusion: This is the modern ES6 destructuring assignment syntax that provides the cleanest and most readable way to swap variables in JavaScript without intermediate steps or mathematical operations.
 
 ---
-
 ## ➗ Operators in Action
 
 ### Division `/`
