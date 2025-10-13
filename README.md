@@ -291,6 +291,13 @@ let temp = a;
 a = b;
 b = temp;
 ```
+- Store original value - temp = a saves the initial value of a (10) in a temporary variable before it gets overwritten
+
+- Swap first variable - a = b assigns the value of b (20) to a, so now a becomes 20
+
+- Swap second variable - b = temp assigns the saved original value of a (10) to b, completing the swap
+
+Conclusion: This is a classic variable swapping technique using a temporary variable to safely exchange values between two variables without losing any data in the process.
 
 ### 2. With Math (No Extra Variable)
 
