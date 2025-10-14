@@ -346,6 +346,13 @@ console.log(a / b); // 0.545454...
 
 **To get only the integer part, use `Math.floor()`:**
 
+- Regular Division - / operator performs exact mathematical division and returns a decimal result (0.545454...)
+
+- Math.floor() Function - Rounds down to the nearest integer, removing the decimal part completely
+
+- Integer Result - Math.floor(a / b) gives only the whole number portion (0), discarding any fractional value
+
+Conclusion: Use regular division / when you need precise decimal results, but combine it with Math.floor() when you only want the integer quotient without any fractional component.
 ```javascript
 console.log(Math.floor(a / b)); // 0
 ```
@@ -359,6 +366,14 @@ console.log(a % b); // 1
 ```
 
 - `%` gives the **remainder** after division.
+
+- Division Remainder - The % operator divides two numbers and returns what's left over after the division
+
+- 7 ÷ 2 Example - 7 divided by 2 equals 3 with 1 left over (2 × 3 = 6, 7 - 6 = 1)
+
+- Use Cases - Commonly used to check if numbers are even/odd, for cycling through values, or wrapping ranges
+
+Conclusion: The modulus operator % is essential for finding remainders in division, making it invaluable for pattern detection, alternation, and mathematical cycles in programming.
 
 #### Visualizing Division
 
