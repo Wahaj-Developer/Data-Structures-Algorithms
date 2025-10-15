@@ -387,6 +387,8 @@ Conclusion: The modulus operator % is essential for finding remainders in divisi
 
 ---
 
+- The modulus % gives us this remainder value (1), which represents the amount that couldn't be evenly divided by the divisor, where 3 is the quotient showing how many complete times the divisor fits into the dividend.
+
 ## 🎯 Coding Cheat Sheet
 
 - **Quotient (integer part):**  
