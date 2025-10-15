@@ -402,7 +402,7 @@ let b = 2;
 console.log(a % b); // 1
 console.log(Math.floor(a / b)); // 3
 ```
-
+- Using % gives you the remainder while Math.floor(a / b) gives you the quotient - together they provide the complete result of integer division, where 3 is the quotient showing how many times the divisor fits completely.
 ---
 
 ## 🔍 Extracting Digits with Modulus
