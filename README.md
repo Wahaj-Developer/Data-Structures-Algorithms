@@ -427,7 +427,7 @@ Want the *last three digits*?
 let a = 4563;
 console.log(a % 1000); // 563
 ```
-
+- The modulus operator with powers of 10 (% 10, % 100, % 1000) is a powerful tool for extracting digits from the right side of numbers, where the divisor determines how many digits you get from the end.
 ---
 
 ## 👨‍💻 Relational Operators
