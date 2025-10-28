@@ -432,7 +432,6 @@ console.log(a % 1000); // 563
 
 ## 👨‍💻 Relational Operators
 
-Relational operators compare two values and allow you to perform conditional logic:
 
 - `<`  (Less than)
 - `>`  (Greater than)
@@ -442,7 +441,9 @@ Relational operators compare two values and allow you to perform conditional log
 - `=`  (Assignment, not comparison)
 - `==` (Equal to, compares values but not type)
 - `===` (Strict equal to, compares both value and type)
-
+- `&&` (Logical AND Both conditions must be true)
+- `||` (Logical OR At least one condition must be true)
+  
 ### Examples
 
 #### `>` Greater than
@@ -507,6 +508,41 @@ console.log(10 === '10'); // Output: false
 // Checks both value and type
 ```
 - `===` 10 is value and ' ' is type.
+
+#### `&&` And Operater
+
+```javascript
+console.log(10>6  &&  5<9)
+// True<-----|         |----->True
+Output: True
+```
+- In this statement as we see both staement are true so the output come true
+
+```javascript
+console.log(10>6  &&  15<9)
+//  True<-----|         |------>false
+Output: False
+```
+- In this as we can see if we have two statement and one statement get false so no matter the other
+statement is true the whole statement are false
+
+#### `||`OR Operater
+
+
+```javascript
+console.log(10>6  ||  5<9)
+//  True<-----|        |------->True
+Output: True
+```
+- In this statement, since both conditions are true, the output is true.
+
+```javascript
+console.log( 10>6  ||  15<9)
+//   True<-----|         |----->false
+Output: TRue
+```
+- The code asks "Is 10 greater than 6 OR is 15 less than 9?" Because the first question is a definite "YES", the overall answer is true.
+
 ---
 
 ## 📝 Summary
@@ -519,42 +555,8 @@ console.log(10 === '10'); // Output: false
 - `=` is the assignment operator (sets a value).
 - `==` checks for equality of value only.
 - `===` checks for equality of both value and type.
+- `&&` (Logical AND) returns true only when both conditions are satisfied.
+- `||` (Logical OR) returns true when at least one condition is true.
 - Variables act as containers, operators as tools — use them wisely!
 
 ---
-
-Topic: Logical operater
-&-----> And operater                            ||---------> OR operater
-We use logical operater where we have multiple statment
-
-&& Operater
-```javascript
-console.log(10>6  &&  5<9)
-  True <-------|               |--------->True
-Output: True
-```
-In this statment as we see both staement are true so the output come true
-
-```javascript
-console.log(10>6  &&  15<9)
-  True <-------|               |--------->false
-Output: False
-```
-In this as we can see if we have two statement and one statement get false so no matter the other
-statment is true the whole staement are false
-
-| | OR operater
-```javascript
-console.log(10>6  ||  5<9)
-  True <-------|               |--------->True
-Output: True
-```
-In this statment as we see both staement are true so the output come true
-
-```javascript
-console.log(10>6  ||  15<9)
-  True <-------|               |--------->false
-Output: TRue
-```
-In this as we can see if we have two statement and one statement get true so no matter the other
-statment is false the whole staement are true
