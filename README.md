@@ -514,14 +514,14 @@ console.log(10 === '10'); // Output: false
 ```javascript
 console.log(10>6  &&  5<9)
 // True<-----|         |----->True
-Output: True
+// Output: True
 ```
 - In this statement as we see both staement are true so the output come true
 
 ```javascript
 console.log(10>6  &&  15<9)
 //  True<-----|         |------>false
-Output: False
+//  Output: False
 ```
 - In this as we can see if we have two statement and one statement get false so no matter the other
 statement is true the whole statement are false
@@ -532,14 +532,14 @@ statement is true the whole statement are false
 ```javascript
 console.log(10>6  ||  5<9)
 //  True<-----|        |------->True
-Output: True
+//  Output: True
 ```
 - In this statement, since both conditions are true, the output is true.
 
 ```javascript
 console.log( 10>6  ||  15<9)
 //   True<-----|         |----->false
-Output: TRue
+//  Output: True
 ```
 - The code asks "Is 10 greater than 6 OR is 15 less than 9?" Because the first question is a definite "YES", the overall answer is true.
 
