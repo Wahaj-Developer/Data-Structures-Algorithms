@@ -520,3 +520,41 @@ console.log(10 === '10'); // Output: false
 - `==` checks for equality of value only.
 - `===` checks for equality of both value and type.
 - Variables act as containers, operators as tools — use them wisely!
+
+---
+
+Topic: Logical operater
+&-----> And operater                            ||---------> OR operater
+We use logical operater where we have multiple statment
+
+&& Operater
+```javascript
+console.log(10>6  &&  5<9)
+  True <-------|               |--------->True
+Output: True
+```
+In this statment as we see both staement are true so the output come true
+
+```javascript
+console.log(10>6  &&  15<9)
+  True <-------|               |--------->false
+Output: False
+```
+In this as we can see if we have two statement and one statement get false so no matter the other
+statment is true the whole staement are false
+
+| | OR operater
+```javascript
+console.log(10>6  ||  5<9)
+  True <-------|               |--------->True
+Output: True
+```
+In this statment as we see both staement are true so the output come true
+
+```javascript
+console.log(10>6  ||  15<9)
+  True <-------|               |--------->false
+Output: TRue
+```
+In this as we can see if we have two statement and one statement get true so no matter the other
+statment is false the whole staement are true
