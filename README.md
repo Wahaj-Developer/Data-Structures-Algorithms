@@ -560,3 +560,104 @@ console.log( 10>6  ||  15<9)
 - Variables act as containers, operators as tools — use them wisely!
 
 ---
+
+## 🔼 Unary Operators: ++ and --
+
+Unairay operarter          ++,--
+++ this is incremnt operater  
+-- This is decriment operarter
+
+They both have two property like:
+- pre-increment / pre-decrement
+- post-increment / post-decrement
+
+### What they do (simple)
+- `++` increases the numeric value by 1.
+- `--` decreases the numeric value by 1.
+
+They change the variable itself (they are mutating operators).
+
+### Pre vs Post (Important)
+- Pre-increment (`++x`) / pre-decrement (`--x`): first change the value, then return the new value.
+- Post-increment (`x++`) / post-decrement (`x--`): first return the current value, then change it.
+
+### Examples
+
+```javascript
+let x = 5;
+console.log(++x); // pre-increment: x becomes 6, then prints 6
+// now x is 6
+
+let y = 5;
+console.log(y++); // post-increment: prints 5, then y becomes 6
+// now y is 6
+
+let a = 5;
+console.log(--a); // pre-decrement: a becomes 4, then prints 4
+// now a is 4
+
+let b = 5;
+console.log(b--); // post-decrement: prints 5, then b becomes 4
+// now b is 4
+```
+
+### Behaviour inside expressions
+Because pre/post return different values, they behave differently when used inside larger expressions:
+
+```javascript
+let i = 1;
+console.log(i + ++i); // highly confusing — evaluate carefully
+// Example step-by-step (engine dependent evaluation order can matter):
+// i is 1, ++i makes i = 2 and returns 2 => expression becomes 1 + 2 = 3
+// final i is 2
+
+let j = 1;
+console.log(j + j++); 
+// returns 1 + 1 = 2, then j becomes 2
+// final j is 2
+```
+
+Note: writing code that mixes increments inside complex expressions is confusing and error-prone. Prefer simple, clear statements:
+```javascript
+i++;
+// or
+++i;
+```
+
+### Rules & gotchas
+- You cannot apply `++` or `--` to constants (`const`) or to values that are not assignable (like literals). That will throw an error.
+  ```javascript
+  const c = 3;
+  c++; // TypeError: Assignment to constant variable.
+  5++; // SyntaxError
+  ```
+- They coerce non-number types to numbers (if possible):
+  ```javascript
+  let s = "2";
+  s++; // s becomes number 3
+  ```
+- Using them on objects/properties is fine if the property is writable:
+  ```javascript
+  const obj = { n: 1 };
+  obj.n++; // obj.n becomes 2
+  ```
+- Avoid using `++`/`--` in code where order of evaluation is important or unclear (like inside function arguments or complex arithmetic). It reduces readability and can introduce subtle bugs.
+
+### When to use
+- Good for simple counters and loops:
+  ```javascript
+  for (let k = 0; k < 5; k++) {
+    console.log(k);
+  }
+  ```
+- Avoid in complex expressions; use explicit addition/subtraction when clarity matters:
+  ```javascript
+  count = count + 1; // clearer for some readers than ++count
+  ```
+
+---
+In this add more content that i did also add only my information and my explanation according to old document style also if it importnt
+Unairay operarter          ++,--
+++ this is incremnt operater
+-- This is decriment operarterThey both have two property like post increment
+,pre increment , post decriment pre decriment
