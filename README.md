@@ -26,6 +26,8 @@ Operators let you perform actions on data:
 - `=` (Assignment)
 - `==` (Abstract equality operator or Loose equality operator)
 - `===` (Strict equality operator)
+- `++`  (Increment operator.Increases a number by 1.`x++` → Postfix: use now, increment later.`++x` → Prefix: increment now, use later.)
+- `--` -- (Decrement operator.Decreases a number by 1.`x--` → Postfix: use now, decrement later.`--x` → Prefix: decrement now, use later.)
 
 **Example:**
 ```javascript
