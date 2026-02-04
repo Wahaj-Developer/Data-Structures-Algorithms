@@ -641,7 +641,7 @@ console.log(d);   // 2
   - Invalid: `++5` or `++(a + b)` (syntax error)
 
 ---
-## Post vs Pre Examples (from your notes)
+## Post vs Pre Examples
 
 Post:
 ```javascript
