@@ -641,6 +641,38 @@ console.log(d);   // 2
   - Invalid: `++5` or `++(a + b)` (syntax error)
 
 ---
+## Post vs Pre Examples (from your notes)
+
+Post:
+```javascript
+let a = 10;
+let b = a++;
+console.log(a); // Output: 11
+console.log(b); // Output: 10
+```
+
+Pre:
+```javascript
+let a = 10;
+let b = ++a;
+console.log(a); // Output: 11
+console.log(b); // Output: 11
+```
+
+Explanation:
+- In post the JavaScript first use the value then change it
+
+               a++
+               | |
+       value---| |------ change
+
+- In pre first JavaScript change value then use it
+
+                       ++a
+                       | |
+              Change---| |------value
+
+This example is also for `--` (decrement) — same rules apply for pre/post decrement.
 
 ### ✅ Best practices / Recommendations
 - Use `++`/`--` when you're intentionally changing the variable in place (e.g., loop counters).
