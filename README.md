@@ -3,6 +3,28 @@
 # ⚠️ DISCLAIMER: Intermediate Level Content Ahead
 # If you're new to JavaScript, this might feel like drinking from a firehose! 🔥
 ---
+## 📋 Repository Topics Overview
+
+| # | Topic | Description | Level | Status |
+|---|-------|-------------|-------|--------|
+| 1 | **Variables** | Understanding `var`, `let`, and `const` - declaration, scope, hoisting, re-declaration, and mutability | Intermediate | ✅ Covered |
+| 2 | **Operators** | Arithmetic, assignment, relational, logical, and unary operators (`++`, `--`) | Intermediate | ✅ Covered |
+| 3 | **Data Types & Type Checking** | Working with different JavaScript data types and type coercion | Intermediate | ✅ Covered |
+| 4 | **Type Coercion** | Implicit and explicit type conversion (Number + String concatenation) | Intermediate | ✅ Covered |
+| 5 | **Variable Swapping** | Three methods: temporary variable, mathematical approach, and ES6 destructuring | Beginner-Intermediate | ✅ Covered |
+| 6 | **Arithmetic Operations** | Addition, subtraction, multiplication, division, and modulus operations | Beginner | ✅ Covered |
+| 7 | **Comparison Operators** | `<`, `>`, `<=`, `>=`, `==`, `===`, `!=` operators and equality differences | Intermediate | ✅ Covered |
+| 8 | **Logical Operators** | `&&` (AND) and `\|\|` (OR) operators for boolean logic | Intermediate | ✅ Covered |
+| 9 | **Scope & Hoisting** | Block scope, function scope, temporal dead zone, and hoisting behavior | Intermediate | ✅ Covered |
+| 10 | **Increment/Decrement** | Pre/post increment (`++`) and decrement (`--`) with edge cases | Intermediate | ✅ Covered |
+| 11 | **Digit Extraction** | Using modulus operator to extract digits from numbers | Beginner-Intermediate | ✅ Covered |
+| 12 | **Problem Solving** | Fundamental programming concepts and problem-solving techniques | All Levels | 🚧 In Progress |
+| 13 | **Data Structures** | Core focus - expected but not yet detailed in current content | All Levels | 🚧 Incomplete |
+| 14 | **Algorithms** | Core focus - expected but not yet detailed in current content | All Levels | 🚧 Incomplete |
+| 15 | **JavaScript Best Practices** | Modern JavaScript conventions and recommendations | Intermediate | ✅ Covered |
+| 16 | **System Design** | Advanced patterns and architectural concepts | Advanced | 🚧 Incomplete |
+
+---
 
 ## 🚀 Variables: Your Data Containers
 
