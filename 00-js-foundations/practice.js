@@ -102,3 +102,63 @@ sa2 = sa2 + sb2; // 10 + 20 = 30
 sb2 = sa2 - sb2; // 30 - 20 = 10
 sa2 = sa2 - sb2; // 30 - 10 = 20
 console.log(sa2, sb2); // 20 10
+
+// --- swapping with destructuring assignment ---
+// destructuring: put the values into an array, then reassign them back in
+// the opposite order, all in one line — that's the whole swap in one shot
+
+let a8 = 10;
+let b8 = 20;
+[a8, b8] = [b8, a8];
+console.log(a8, b8); // 20 10
+
+// --- division & Math.floor ---
+// division doesn't stop at the decimal point on its own, so if I only want
+// the whole-number part, I strip everything after the point with Math.floor()
+
+let a9 = 12;
+let b9 = 22;
+console.log(a9 / b9);             // 0.5454545454545454
+console.log(Math.floor(a9 / b9)); // 0
+
+// --- modulo (%): division gives the quotient, modulo gives the remainder ---
+
+let a10 = 7;
+let b10 = 2;
+console.log(a10 % b10); // 1  (7 / 2 -> quotient 3, remainder 1)
+console.log(b10 % a10); // 2  (2 / 7 -> quotient 0, remainder 2)
+
+// --- relational operators ---
+
+console.log(5 < 10);    // true   (< less than)
+console.log(10 > 5);    // true   (> greater than)
+console.log(10 >= 5);   // true   (>= greater than or equal to)
+console.log(10 <= 10);  // true   (<= — my notes mislabeled this one, see README)
+console.log(5 == "5");  // true   (== loose equality: value only, ignores type)
+console.log(5 === "5"); // false  (=== strict equality: value AND type)
+console.log(5 != "5");  // true   (!= loose inequality: values differ, ignoring type)
+console.log("5" !== "5"); // false (!== strict inequality: value or type differs)
+
+// --- logical operators ---
+// && (AND): true only if every statement is true
+// || (OR): true if at least one statement is true
+// (the && example from my notes doesn't check out math-wise -- see README note)
+
+console.log(10 > 6 || 8 < 9); // true (OR: 10 > 6 alone is already true)
+
+// --- unary operators: post-increment vs pre-increment ---
+
+// post-increment: use the value first, THEN increment it
+let a12 = 10;
+let b12 = a12++;
+console.log(a12); // 11
+console.log(b12); // 10
+
+// pre-increment: increment FIRST, then use the new value
+let a13 = 10;
+let b13 = ++a13;
+console.log(a13); // 11
+console.log(b13); // 11
+
+// -- (decrement) follows the same pattern: post-decrement subtracts after
+// using the value, pre-decrement subtracts before using it

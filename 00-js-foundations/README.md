@@ -180,9 +180,125 @@ a = a - b; // a becomes 30 - 10 = 20
 // Output: a = 20, b = 10
 ```
 
+### Is there a shorter way to swap without a third variable?
+
+Yes — array destructuring. I make the two values into an array and reassign them back in the opposite order, in one line:
+
+```js
+let a = 10;
+let b = 20;
+[a, b] = [b, a];
+// Output: a = 20, b = 10
+```
+
+This is called **destructuring assignment**: pull values out of an array (or object) by matching positions/keys, instead of grabbing them one at a time. Using it for a swap is just the assignment pattern above — `[a, b] = [b, a]` means "the new `a` is the old `b`, and the new `b` is the old `a`," all evaluated at once so nothing gets overwritten before it's used.
+
+### What are the arithmetic operators?
+
+Addition, subtraction, multiplication, division, and modulo (`%`). Addition/subtraction/multiplication work the way I'd expect. Division and modulo need their own notes below.
+
+### Division gives me a decimal — how do I get just the whole number part?
+
+```js
+let a = 12;
+let b = 22;
+console.log(a / b);
+// Output: 0.5454545454545454
+```
+
+Division doesn't stop at the decimal point on its own — I get the full decimal answer. If I only want the whole number before the point, I use `Math.floor()`, which removes everything after the decimal point:
+
+```js
+console.log(Math.floor(a / b));
+// Output: 0
+```
+
+`Math.floor` is a function from JS's built-in `Math` library. I only reach for it when I specifically need the whole-number part and nothing after the point.
+
+### What does `%` (modulo) actually give me?
+
+Regular division (`/`) gives the **quotient** — how many whole times one number fits into another. Modulo (`%`) gives the **remainder** — what's left over after that division.
+
+```js
+let a = 7;
+let b = 2;
+console.log(a % b);
+// Output: 1
+// 7 divided by 2 fits 3 whole times (quotient 3), with 1 left over — modulo gives me that 1
+
+console.log(b % a);
+// Output: 2
+// 2 divided by 7 fits 0 whole times, so the whole thing is left over — modulo gives 2
+```
+
+So: division gives the quotient, modulo gives the reminder.
+
+### What are relational operators?
+
+They compare two values and give back `true` or `false`.
+
+| Operator | Name | True when... | Example | Result |
+|---|---|---|---|---|
+| `<` | Less than | left value is smaller than the right | `5 < 10` | `true` |
+| `>` | Greater than | left value is larger than the right | `10 > 5` | `true` |
+| `>=` | Greater than or equal to | left value is larger than or equal to the right | `10 >= 5` | `true` |
+| `==` | Loose equality | values are equal, ignoring type | `5 == "5"` | `true` |
+| `===` | Strict equality | both value and type are equal | `5 === "5"` | `false` |
+| `!=` | Loose inequality | values are different, ignoring type | `5 != "5"` | `true` |
+| `!==` | Strict inequality | value or type is different | `"5" !== "5"` | `false` |
+
+> Note to self / left for Wahaj to confirm: my notes have a `<=` row labelled "Greater than or equal to" but described as "true if the left value is smaller than or equal to the right," with the example `10 <= 10 → true`. That description matches **Less than or equal to**, not "Greater than or equal to" — looks like a mislabel in the notebook. Left out of the table above until you confirm which it should say.
+
+### What are logical operators?
+
+They combine multiple `true`/`false` comparisons into one result.
+
+- `&&` (AND) — checks every statement and returns `true` only if **all** of them are true.
+- `||` (OR) — checks every statement and returns `true` if **at least one** of them is true.
+
+```js
+console.log(10 > 6 || 8 < 9);
+// Output: true — 10 > 6 is true, so OR already has what it needs
+```
+
+It doesn't matter how many statements I chain — `&&` and `||` just keep following their own rule across all of them.
+
+> Note to self / left for Wahaj to confirm: my notes show `(10 > 6 && 8 > 9)` with `Output: true`, but `8 > 9` is false, so a true `&&` (AND) should give `false` here. Left this example out of `practice.js` until you confirm what the notes meant to show.
+
+### What are unary operators (increment/decrement)?
+
+`++` adds 1, `--` subtracts 1 — but *when* that happens depends on whether it comes before or after the variable.
+
+**Post-increment (`a++`)** — use the current value first, *then* increment:
+
+```js
+let a = 10;
+let b = a++;
+console.log(a); // 11
+console.log(b); // 10
+```
+
+**Pre-increment (`++a`)** — increment first, *then* use the new value:
+
+```js
+let a = 10;
+let b = ++a;
+console.log(a); // 11
+console.log(b); // 11
+```
+
+In short: post says "use the value, then increment." Pre says "increment the value, then use it."
+
+`--` (decrement) follows the exact same idea — post-decrement uses the value then subtracts 1, pre-decrement subtracts 1 then uses the value.
+
 ## Problems solved
 
 - [Number vs. string addition](./practice.js)
 - [Type coercion with `+` vs `-`](./practice.js)
 - [Accepting and casting user input](./practice.js)
 - [Swapping two variables](./practice.js)
+- [Swapping with array destructuring](./practice.js)
+- [Division vs. modulo, and `Math.floor`](./practice.js)
+- [Relational operators](./practice.js)
+- [Logical operators](./practice.js)
+- [Increment/decrement: post vs. pre](./practice.js)
