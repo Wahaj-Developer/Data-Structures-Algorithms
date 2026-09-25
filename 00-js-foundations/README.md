@@ -291,6 +291,174 @@ In short: post says "use the value, then increment." Pre says "increment the val
 
 `--` (decrement) follows the exact same idea — post-decrement uses the value then subtracts 1, pre-decrement subtracts 1 then uses the value.
 
+### What happens when I mix `i++` and `++i` in the same expression?
+
+```js
+let i = 11;
+let j = i++ + ++i;
+console.log(j);
+// Output: 24
+```
+
+Left to right: `i++` uses the current value first (`11`) and then bumps `i` to `12`. Then `++i` bumps `i` again first (to `13`) and returns that. So the sum is `11 + 13 = 24`.
+
+```js
+let a = 11;
+let b = 12;
+let c = a++ + ++b;
+console.log(a); // 12
+console.log(b); // 13
+console.log(c); // 24
+```
+
+Same idea with two different variables: `a++` gives `11` then `a` becomes `12`. `++b` bumps `b` to `13` first and gives that. `11 + 13 = 24`.
+
+```js
+let a = 11;
+let b = 12;
+let c = a + b + a++ + b++ + ++a + ++b;
+console.log(a); // 13
+console.log(b); // 14
+console.log(c); // 73
+```
+
+Longer chain, same rule applied term by term, left to right:
+- `a` → `11` (plain read, nothing changes yet)
+- `b` → `12` (plain read)
+- `a++` → `11`, then `a` becomes `12`
+- `b++` → `12`, then `b` becomes `13`
+- `++a` → `a` becomes `13`, returns `13`
+- `++b` → `b` becomes `14`, returns `14`
+
+`11 + 12 + 11 + 12 + 13 + 14 = 73`, and by the end `a = 13`, `b = 14`.
+
+> Note to self / left for Wahaj to confirm: two problems from this page (labeled `Q:2` and a second `Q:5`) trail off in the notebook without a final `console.log` line or written output, so I couldn't reconstruct what they were checking. Skipped both here — let me know if you want them filled in.
+
+### Can I increment a boolean?
+
+```js
+let a = true;
+++a;
+console.log(a);
+// Output: 2
+```
+
+Yes — JS coerces `true` to `1` and `false` to `0` before doing math on it, so `++true` becomes `1 + 1 = 2`.
+
+### Why does `++11` throw an error?
+
+```js
+++11;
+// Output: SyntaxError: Invalid left-hand side expression in prefix operation
+```
+
+Because `++` and `--` need something they can actually update — a variable — not a raw literal value. `11` isn't a reference to anywhere in memory, so there's nothing for `++` to increment.
+
+### Why does `--(a++)` also throw an error?
+
+```js
+let a = 10;
+let j = --(a++);
+// Output: SyntaxError: Invalid left-hand side expression in prefix operation
+```
+
+Same root cause as `++11`. `(a++)` hands back a plain value, not a reference to `a` itself — so once that's wrapped in parentheses, applying `--` to it is like applying `--` directly to a number. `++`/`--` only work directly on a variable, never on the result of another expression.
+
+### Math.round() vs Math.ceil() vs Math.floor() vs Math.trunc()
+
+```js
+console.log(Math.ceil(10.1));
+// Output: 11
+```
+
+`Math.ceil()` always rounds **up** to the next whole number, no matter how small the decimal part is.
+
+```js
+console.log(Math.floor(10.9));
+// Output: 10
+```
+
+`Math.floor()` always rounds **down**, no matter how big the decimal part is.
+
+```js
+console.log(Math.trunc(18.98));
+// Output: 18
+```
+
+`Math.trunc()` just chops off everything after the decimal point — it's not "rounding" in either direction, it's removal. For a positive number like this it lands on the same result as `Math.floor()`, but they work differently once negative numbers are involved.
+
+> Note to self / left for Wahaj to confirm: my notes have `Math.round(10.6)` with the output written as `10`, but a separate rule right after it says "0.5 or higher rounds up, below .5 rounds down" — which would make `Math.round(10.6)` equal `11`, not `10`. Looks like a slip in the notebook (maybe the number was meant to be `10.4`). Left `Math.round()` out of `practice.js` until you confirm which one's right.
+
+### Math.pow(), Math.sqrt(), Math.cbrt()
+
+```js
+console.log(Math.pow(2, 5));
+// Output: 32
+```
+
+`Math.pow(base, exponent)` multiplies the base by itself `exponent` times: `2 × 2 × 2 × 2 × 2 = 32`.
+
+```js
+console.log(Math.sqrt(16));
+// Output: 4
+```
+
+`Math.sqrt()` gives the number that, multiplied by itself, produces the input: `4 × 4 = 16`.
+
+```js
+console.log(Math.cbrt(8));
+// Output: 2
+```
+
+`Math.cbrt()` is the same idea but for cubes: the number that, multiplied by itself 3 times, produces the input: `2 × 2 × 2 = 8`.
+
+### Math.abs(), Math.min(), Math.max()
+
+```js
+console.log(Math.abs(-10));
+// Output: 10
+```
+
+`Math.abs()` strips the negative sign and gives the positive version of a number.
+
+```js
+console.log(Math.min(1, 2, 3, 4, 5));
+// Output: 1
+
+console.log(Math.max(1, 2, 3, 4, 5));
+// Output: 5
+```
+
+`Math.min()` / `Math.max()` scan a whole set of numbers and return the smallest / largest one.
+
+### Math.random() and .toFixed()
+
+```js
+console.log(Math.random());
+// Output: something like 0.3821... — always a decimal between 0 and 1, never reaching 1
+```
+
+`Math.random()` generates a random decimal below `1`. Multiplying it (e.g. `Math.random() * 9000`) scales that range up — so `Math.random() * 9000` gives a random number somewhere under `9000`.
+
+> Note to self / left for Wahaj to confirm: the `.toFixed()` example in my notes (`12.34567` → `.toFixed(2)`) has an output written that doesn't parse (`12.84`, when `.toFixed(2)` on that number should actually give `"12.35"`). I know the concept — it controls how many digits show after the decimal point — but left the example out of `practice.js` until the real output's confirmed.
+
+### Problem: generate a random 4-digit OTP
+
+**Method 1 — inline:**
+
+```js
+console.log(Math.trunc(Math.random() * 9000 + 1000));
+```
+
+**Method 2 — stored in a variable:**
+
+```js
+let otp = Math.trunc(Math.random() * 9000 + 1000);
+console.log(otp);
+```
+
+`Math.random() * 9000` gives a random decimal somewhere between `0` and `9000`. Adding `1000` shifts that whole range up to between `1000` and `9999` — a proper 4-digit number. `Math.trunc()` chops off the decimal part so it's a clean integer, not something like `4821.7362`.
+
 ## Problems solved
 
 - [Number vs. string addition](./practice.js)
@@ -302,3 +470,11 @@ In short: post says "use the value, then increment." Pre says "increment the val
 - [Relational operators](./practice.js)
 - [Logical operators](./practice.js)
 - [Increment/decrement: post vs. pre](./practice.js)
+- [Combining `i++` and `++i` in one expression](./practice.js)
+- [Incrementing a boolean](./practice.js)
+- [Why `++11` and `--(a++)` throw errors](./practice.js)
+- [Math.ceil, Math.floor, Math.trunc](./practice.js)
+- [Math.pow, Math.sqrt, Math.cbrt](./practice.js)
+- [Math.abs, Math.min, Math.max](./practice.js)
+- [Math.random and scaling a random range](./practice.js)
+- [Generating a random 4-digit OTP](./practice.js)
