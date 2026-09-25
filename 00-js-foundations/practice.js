@@ -162,3 +162,79 @@ console.log(b13); // 11
 
 // -- (decrement) follows the same pattern: post-decrement subtracts after
 // using the value, pre-decrement subtracts before using it
+
+// --- combining i++ and ++i in one expression ---
+
+let i14 = 11;
+let j14 = i14++ + ++i14;
+console.log(j14); // 24
+
+let a15 = 11;
+let b15 = 12;
+let c15 = a15++ + ++b15;
+console.log(a15); // 12
+console.log(b15); // 13
+console.log(c15); // 24
+
+let a16 = 11;
+let b16 = 12;
+let c16 = a16 + b16 + a16++ + b16++ + ++a16 + ++b16;
+console.log(a16); // 13
+console.log(b16); // 14
+console.log(c16); // 73
+
+// --- incrementing a boolean: JS coerces true/false to 1/0 first ---
+
+let a17 = true;
+++a17;
+console.log(a17); // 2
+
+// --- ++ and -- only work directly on a variable, not on a literal or on
+// the result of another expression. Both of these are actually SyntaxErrors
+// thrown while the code is being parsed (not regular runtime errors), so
+// they can't sit as plain statements in this file without breaking it --
+// wrapped in eval() here just so I can still demonstrate + catch them.
+
+try {
+  eval("++11;");
+} catch (err) {
+  console.log(err.message); // Invalid left-hand side expression in prefix operation
+}
+
+try {
+  let a18 = 10;
+  eval("--(a18++);");
+} catch (err) {
+  console.log(err.message); // Invalid left-hand side expression in prefix operation
+}
+
+// --- Math.ceil vs Math.floor vs Math.trunc ---
+
+console.log(Math.ceil(10.1));   // 11
+console.log(Math.floor(10.9));  // 10
+console.log(Math.trunc(18.98)); // 18
+
+// --- Math.pow, Math.sqrt, Math.cbrt ---
+
+console.log(Math.pow(2, 5)); // 32
+console.log(Math.sqrt(16));  // 4
+console.log(Math.cbrt(8));   // 2
+
+// --- Math.abs, Math.min, Math.max ---
+
+console.log(Math.abs(-10));           // 10
+console.log(Math.min(1, 2, 3, 4, 5)); // 1
+console.log(Math.max(1, 2, 3, 4, 5)); // 5
+
+// --- Math.random: always a decimal between 0 (inclusive) and 1 (exclusive) ---
+
+console.log(Math.random()); // e.g. 0.3821...
+
+// --- problem: generate a random 4-digit OTP ---
+
+// Method 1: inline
+console.log(Math.trunc(Math.random() * 9000 + 1000));
+
+// Method 2: stored in a variable
+let otp19 = Math.trunc(Math.random() * 9000 + 1000);
+console.log(otp19);
