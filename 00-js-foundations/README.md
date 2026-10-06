@@ -459,6 +459,79 @@ console.log(otp);
 
 `Math.random() * 9000` gives a random decimal somewhere between `0` and `9000`. Adding `1000` shifts that whole range up to between `1000` and `9999` — a proper 4-digit number. `Math.trunc()` chops off the decimal part so it's a clean integer, not something like `4821.7362`.
 
+**Method 3 — arrow function:**
+
+```js
+const genOtp = () => {
+  let otp = Math.trunc(Math.random() * 9000 + 1000);
+  console.log(otp);
+};
+genOtp();
+```
+
+**Method 4 — regular function:**
+
+```js
+function genOtp() {
+  let otp = Math.trunc(Math.random() * 9000 + 1000);
+  console.log(otp);
+}
+genOtp();
+```
+
+### What's the difference between an arrow function and a regular function?
+
+A regular function has a `this` dependency. Using it, I can refer to the object or the context that's going on. An arrow function doesn't have that dependency.
+
+### How do I find the area of a rectangle?
+
+```js
+let length = 100;
+let width = 50;
+let area = length * width;
+console.log(area);
+// Output: 5000
+```
+
+Area is just length times width. I can also solve this problem using an arrow function or a regular function.
+
+### How do I find the circumference of a circle?
+
+```js
+let r = 5;
+let circumference = 2 * Math.PI * r;
+console.log(circumference);
+// Output: 31.41592653589793
+```
+
+`Math.PI` is built into JS, so I can refer to the value of PI directly instead of typing it out.
+
+### How do I find the perimeter of a rectangle?
+
+```js
+let length = 100;
+let width = 50;
+let perimeter = 2 * (length + width);
+console.log(perimeter);
+// Output: 300
+```
+
+The formula is `2 * (length + width)`, so I just put that straight into the code.
+
+### How do I find the area of a triangle using Heron's formula?
+
+```js
+let a = 3;
+let b = 4;
+let c = 5;
+let s = (a + b + c) / 2;
+let underRoot = s * (s - a) * (s - b) * (s - c);
+console.log(Math.sqrt(underRoot));
+// Output: 6
+```
+
+`s` and the product both come straight from the formula. In the real math formula, everything sits under the square root, so I work out that whole product first and then solve the square root with `Math.sqrt()` at the end.
+
 ## Problems solved
 
 - [Number vs. string addition](./practice.js)
@@ -478,3 +551,8 @@ console.log(otp);
 - [Math.abs, Math.min, Math.max](./practice.js)
 - [Math.random and scaling a random range](./practice.js)
 - [Generating a random 4-digit OTP](./practice.js)
+- [Generating the OTP with an arrow function and a regular function](./practice.js)
+- [Area of a rectangle](./practice.js)
+- [Circumference of a circle](./practice.js)
+- [Perimeter of a rectangle](./practice.js)
+- [Area of a triangle using Heron's formula](./practice.js)

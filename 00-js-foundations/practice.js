@@ -238,3 +238,51 @@ console.log(Math.trunc(Math.random() * 9000 + 1000));
 // Method 2: stored in a variable
 let otp19 = Math.trunc(Math.random() * 9000 + 1000);
 console.log(otp19);
+
+// Method 3: arrow function
+const genOtpArrow = () => {
+  let otp = Math.trunc(Math.random() * 9000 + 1000);
+  console.log(otp);
+};
+genOtpArrow();
+
+// Method 4: regular function
+function genOtpRegular() {
+  let otp = Math.trunc(Math.random() * 9000 + 1000);
+  console.log(otp);
+}
+genOtpRegular();
+
+// Difference: a regular function has a "this" dependency (it can refer to the
+// object/context that's going on). An arrow function doesn't have that dependency.
+
+// --- problem: area of a rectangle ---
+
+let length20 = 100;
+let width20 = 50;
+let area20 = length20 * width20;
+console.log(area20); // 5000
+
+// --- problem: circumference of a circle ---
+
+let r21 = 5;
+let circumference21 = 2 * Math.PI * r21;
+console.log(circumference21); // 31.41592653589793
+
+// --- problem: perimeter of a rectangle ---
+
+let length22 = 100;
+let width22 = 50;
+let perimeter22 = 2 * (length22 + width22);
+console.log(perimeter22); // 300
+
+// --- problem: area of a triangle using Heron's formula ---
+// everything is under the square root in the formula, so I solve the
+// product first and take Math.sqrt of it at the end
+
+let a23 = 3;
+let b23 = 4;
+let c23 = 5;
+let s23 = (a23 + b23 + c23) / 2;
+let underRoot23 = s23 * (s23 - a23) * (s23 - b23) * (s23 - c23);
+console.log(Math.sqrt(underRoot23)); // 6
