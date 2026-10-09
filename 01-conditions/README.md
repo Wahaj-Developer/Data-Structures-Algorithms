@@ -1,6 +1,6 @@
 # 01 — Conditions
 
-`if`, `else if` and `else` statements, checking for `NaN` with `isNaN()`, and a shop bill discount problem (still in progress).
+`if`, `else if` and `else` statements, checking for `NaN` with `isNaN()`, a shop bill discount problem (still in progress), the ternary operator (including nested), and `switch` with `case`, `break` and `default`.
 
 ### How does an if/else statement work?
 
@@ -81,8 +81,152 @@ if (bill > 9000) {
 
 For a bill above 9000, the discount is 20% of the bill, and the final bill is the bill minus that discount. I use `Math.floor()` so the final bill is a whole number. The other ranges from the table aren't written yet.
 
+### What is the ternary operator?
+
+If I use both `?` and `:` in the code, that is called the ternary operator.
+
+```js
+12 > 13 ? console.log("Wahaj") : console.log("Waji");
+// Output: Waji
+
+14 > 13 ? console.log("Wahaj") : console.log("Waji");
+// Output: Wahaj
+```
+
+In a ternary operator I first write the condition, then what to do if the condition is true, then what to do if it is false:
+
+```
+condition ? answer if true : answer if false
+```
+
+### How does a ternary look as an if/else?
+
+It works like an if/else statement. This is the `14 > 13` example from above written as if/else:
+
+```js
+if (14 > 13) {
+  console.log("Wahaj");
+} else {
+  console.log("Waji");
+}
+// Output: Wahaj
+```
+
+### What is a nested ternary operator?
+
+A nested ternary operator means putting one ternary operator inside another ternary operator. It is useful when I have multiple conditions, possibilities or results.
+
+```js
+let name = "Wahaj";
+let result =
+  name === "Wahaj" ? "Waji"
+  : name === "Ahmed" ? "Wahab"
+  : "Wajahat";
+console.log(result);
+// Output: Waji
+```
+
+How I picture it:
+
+```
+name === "Wahaj"?
+  Yes -> "Waji"
+  No  -> name === "Ahmed"?
+           Yes -> "Wahab"
+           No  -> "Wajahat"
+```
+
+If I put in a wrong name like `"Ali"`, it returns `"Wajahat"`, because both checks fail and it lands on the last answer.
+
+### How does switch / case work?
+
+`switch`, `case` and `break` are also used to handle or compare multiple statements.
+
+```js
+let day = 1;
+switch (day) {
+  case 1:
+    console.log("monday");
+    break;
+  case 2:
+    console.log("tuesday");
+    break;
+  default:
+    console.log("Invalid");
+}
+// Output: monday
+```
+
+### Why `break`?
+
+`break` is used to tell it that if the value matches, return the answer and stop. If I remove `break`, it returns all the answers instead of just the matching one.
+
+### Why `case`?
+
+`case` is used to give a condition where the value gets compared.
+
+### Why `default`?
+
+`default` is used when nothing comes true. If no `case` matches, `default` runs.
+
+### What if I want one answer for multiple conditions?
+
+I can stack the cases on top of each other and give them one shared answer:
+
+```js
+let day = 1;
+switch (day) {
+  case 1:
+  case 2:
+  case 3:
+    console.log("monday");
+    break;
+  // other code
+}
+// Output: monday
+```
+
+Also, if the first condition becomes true, it returns the value and doesn't go on to the second condition, just like if/else.
+
+### Can switch handle decimal numbers?
+
+A switch can handle decimal points, but it makes a mess in some conditions. This one works:
+
+```js
+let number = 2.5;
+switch (number) {
+  case 2.5:
+    console.log(number);
+    break;
+  default:
+    console.log("Wrong");
+}
+// Output: 2.5
+```
+
+This one doesn't:
+
+```js
+let number = 0.1 + 0.2;
+switch (number) {
+  case 0.3:
+    console.log(number);
+    break;
+  default:
+    console.log("Wrong");
+}
+// Output: Wrong
+```
+
+`0.1 + 0.2` never matches `case 0.3`, so it falls to `default`. The problem is that computers use binary numbers, 0 and 1, to store values, and values such as 0.1 and 0.2 are where that causes trouble.
+
 ## Problems solved
 
 - [Valid voter with if/else](./practice.js)
 - [Checking for NaN with isNaN()](./practice.js)
 - [Shop bill discount, first method (in progress)](./practice.js)
+- [Ternary operator and its if/else equivalent](./practice.js)
+- [Nested ternary operator](./practice.js)
+- [Switch with case, break and default](./practice.js)
+- [Switch with multiple cases sharing one answer](./practice.js)
+- [Switch with decimal values](./practice.js)
