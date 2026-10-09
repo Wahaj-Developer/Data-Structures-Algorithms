@@ -45,3 +45,89 @@ if (bill > 9000) {
   let finalBill = Math.floor(bill - discount);
   console.log(finalBill); // 8000
 }
+
+// --- ternary operator ---
+// using both ? and : makes it a ternary operator
+// structure: condition ? answer if true : answer if false
+
+12 > 13 ? console.log("Wahaj") : console.log("Waji"); // Waji
+14 > 13 ? console.log("Wahaj") : console.log("Waji"); // Wahaj
+
+// the same thing as if / else
+if (14 > 13) {
+  console.log("Wahaj");
+} else {
+  console.log("Waji");
+} // Wahaj
+
+// --- nested ternary operator ---
+// one ternary inside another, useful when there are multiple possible results
+
+let userName = "Wahaj";
+let result =
+  userName === "Wahaj" ? "Waji"
+  : userName === "Ahmed" ? "Wahab"
+  : "Wajahat";
+console.log(result); // Waji
+
+// a wrong name fails both checks and lands on the last answer
+let wrongName = "Ali";
+let wrongResult =
+  wrongName === "Wahaj" ? "Waji"
+  : wrongName === "Ahmed" ? "Wahab"
+  : "Wajahat";
+console.log(wrongResult); // Wajahat
+
+// --- switch / case / break / default ---
+// break: if the value matches, return the answer and stop (without it, it returns all the answers)
+// case: gives a condition where the value gets compared
+// default: runs if nothing comes true
+
+let day1 = 1;
+switch (day1) {
+  case 1:
+    console.log("monday");
+    break;
+  case 2:
+    console.log("tuesday");
+    break;
+  default:
+    console.log("Invalid");
+} // monday
+
+// --- switch: one answer for multiple conditions ---
+// if the first condition becomes true, it returns the value and doesn't go
+// on to the second condition, just like if / else
+
+let day2 = 1;
+switch (day2) {
+  case 1:
+  case 2:
+  case 3:
+    console.log("monday");
+    break;
+  // other code
+} // monday
+
+// --- switch with decimal values ---
+// a switch can handle decimal points, but it makes a mess in some conditions
+
+let number1 = 2.5;
+switch (number1) {
+  case 2.5:
+    console.log(number1);
+    break;
+  default:
+    console.log("Wrong");
+} // 2.5
+
+// 0.1 + 0.2 doesn't match case 0.3, so default runs
+// (computers store values in binary, and values like 0.1 and 0.2 cause trouble there)
+let number2 = 0.1 + 0.2;
+switch (number2) {
+  case 0.3:
+    console.log(number2);
+    break;
+  default:
+    console.log("Wrong");
+} // Wrong
