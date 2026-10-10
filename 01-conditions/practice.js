@@ -131,3 +131,23 @@ switch (number2) {
   default:
     console.log("Wrong");
 } // Wrong
+
+// --- why 0.1 + 0.2 is not 0.3 ---
+// decimals like 0.1 and 0.2 can't be stored exactly in binary, so JS stores them approximately
+// the answer comes out as 0.3000000... something, not 0.3
+console.log(0.1 + 0.2); // 0.30000000000000004
+
+// it also affects if / else and everywhere else, not only switch
+let sum = 0.1 + 0.2;
+if (sum === 0.3) {
+  console.log("Equal");
+} else {
+  console.log("Not equal");
+} // Not equal
+
+// if I want the exact value, use a Math library function
+
+// --- when to use what ---
+// if / else -> complex condition
+// switch    -> one value -> many exact choices
+// ternary   -> simple condition + two results

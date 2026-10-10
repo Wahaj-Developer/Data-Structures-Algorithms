@@ -220,6 +220,37 @@ switch (number) {
 
 `0.1 + 0.2` never matches `case 0.3`, so it falls to `default`. The problem is that computers use binary numbers, 0 and 1, to store values, and values such as 0.1 and 0.2 are where that causes trouble.
 
+### Why does 0.1 + 0.2 not give 0.3?
+
+```js
+console.log(0.1 + 0.2);
+// Output: 0.30000000000000004
+```
+
+Decimal values like 0.1 and 0.2 can't be stored exactly in binary numbers, so JS stores them approximately. When I add them, the answer doesn't come out as `0.3`, it comes out as `0.3000000...` something.
+
+This doesn't only affect `switch`. It also happens in an if/else statement and everywhere else:
+
+```js
+let sum = 0.1 + 0.2;
+if (sum === 0.3) {
+  console.log("Equal");
+} else {
+  console.log("Not equal");
+}
+// Output: Not equal
+```
+
+If for some reason I want the exact value, I use a Math library function.
+
+### When do I use if/else, switch and ternary?
+
+```
+if/else  -> complex condition
+switch   -> one value -> many exact choices
+ternary  -> simple condition + two results
+```
+
 ## Problems solved
 
 - [Valid voter with if/else](./practice.js)
@@ -230,3 +261,4 @@ switch (number) {
 - [Switch with case, break and default](./practice.js)
 - [Switch with multiple cases sharing one answer](./practice.js)
 - [Switch with decimal values](./practice.js)
+- [0.1 + 0.2 and the floating point problem](./practice.js)
