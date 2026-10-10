@@ -17,5 +17,6 @@ Study flow per topic: watch/learn → solve it myself → write it down → make
 |---|---------|--------|
 | 00 | [js-foundations](./00-js-foundations) | Done |
 | 01 | [conditions](./01-conditions) | In progress |
+| 02 | [loops](./02-loops) | In progress |
 
 More chapters get added to this table as they're completed.
