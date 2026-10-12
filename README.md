@@ -2,9 +2,13 @@
 
 Personal Data Structures & Algorithms learning log. Every chapter documents real understanding — my own notes, my own solutions, and the reasoning behind them — not just solved problems.
 
+## A note
+
+This repo is my personal learning experience, written in my own words. I'm still learning, so something here might be wrong or outdated. If you find anything like that, please contact me by opening an issue on this repo.
+
 ## How this repo works
 
-Each chapter is a numbered folder (`00-js-foundations`, `01-arrays`, ...) containing:
+Each chapter is a numbered folder (`00-js-foundations`, `01-conditions`, ...) containing:
 
 - `README.md` — short, question-framed explanations in my own words, based only on what I actually understood that day
 - `practice.js` (or per-problem files under `problems/`) — my own code, cleaned up but keeping my original logic
