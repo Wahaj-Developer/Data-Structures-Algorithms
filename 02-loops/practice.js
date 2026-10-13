@@ -42,3 +42,41 @@ for (let i = 23; i > 1; i--) {
 // for (let i = 23; i > 1; i++) {
 //   console.log(i);
 // }
+
+// --- value of i after the loop (var) ---
+// i is a var created outside the loop, so start part is empty
+// the loop prints 1 to 10, then i becomes 11 and the loop closes
+// but 11 is still saved in i
+var i = 1;
+for (; i <= 10; i++) {
+  console.log(i);
+}
+console.log(i);
+// Output: 1 2 3 ... 10, then 11
+
+// --- valid code but infinite (do not run these) ---
+// valid code but infinite means syntactically correct but logically wrong
+
+// no change part: did not tell what to do with 1, so it prints 1 forever
+// for (var i = 1; i <= 10; ) {
+//   console.log(i);
+// }
+
+// no condition
+// for (var i = 1; ; ) {
+//   console.log(i);
+// }
+
+// nothing inside, all parts empty
+// for (;;) {
+//   console.log("Hello world");
+// }
+
+// --- invalid code (do not run this) ---
+// only one semicolon, we have to give all the loop parts
+// for (;) {
+//   console.log("Hello");
+// }
+
+// Start -> Condition -> What to do
+// where you start, what you are doing
